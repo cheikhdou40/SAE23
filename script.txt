@@ -1,0 +1,40 @@
+
+docker run -d --name mariadb-server -p 3306:3306 --network sae23_dieng -e "MARIADB_USER=cheikh" -e "MARIADB_PASSWORD=root" -e "MARIADB_DATABASE=SAE23" -e "MYSQL_ROOT_PASSWORD=root" --volume C:\Users\Moi\Downloads\SAE24\badowordpress:/var/lib/mysql mariadb:latest
+
+
+
+Docker run --name myadmin --network sae23_dieng -e "PMA_HOST=mariadb-server" -p 9000:80 phpmyadmin
+
+
+
+Docker run --name wordpress_dieng -d -p 80:80 --network sae23_dieng -e "WORDPRESS_DB_HOST=mariadb-server" -e "WORDPRESS_DB_USER=cheikh" -e "WORDPRESS_DB_PASSWORD=root" -e "WORDPRESS_DB_NAME=SAE23" --volume C:\Users\Moi\Downloads\SAE24\htmlwordpress:/var/www/html wordpress:latest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
+
+$marks = array(adidas,nike,converse,bugatti,azzaro);
+for($i=0;$i<sizeof($marks);$i++){
+
+echo"<input type='checkbox' name='marque[]' value='".$marks[$i]."'>".$marks[$i]."<br>";
+}
+?>
